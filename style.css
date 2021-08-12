@@ -1,0 +1,60 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+*::after,
+::before {
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+#box {
+    width: 600px;
+    margin: 50px auto;
+    border: 1px solid blue;
+}
+
+#box header {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    background-color: #17a;
+    padding: 0 10px;
+}
+
+#box header span {
+    cursor: pointer;
+}
+
+#box header span.fl {
+    float: left;
+}
+
+#box header span.fr {
+    float: right;
+}
+
+#box header div {
+    font-size: 30px;
+}
+
+#box table th,
+#box table td {
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    /* height: 30px; */
+    line-height: 30px;
+}
