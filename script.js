@@ -11,7 +11,24 @@ create()
 
 
 //显示当前日期对应的日历
-// showDate()
+showDate()
+
+function showDate() {
+    let year = defaultDate.getFullYear()
+    let month = defaultDate.getMonth() + 1
+    let week = new Date(year, month - 1, 1).getDay()
+    let days = new Date(year, month, 0).getDate()
+    let n = 1
+    for (let i = 0; i < allTd.length; i++) {
+        if (i >= week) {
+            allTd[i].text(n)
+            n++
+            if (n > days) {
+                break;
+            }
+        }
+    }
+}
 
 function create() {
     let header = $(
@@ -50,11 +67,10 @@ function create() {
     for (let i = 0; i < 6; i++) {
         let tr = $("<tr></tr>")
         for (let j = 0; j < 7; j++) {
-            let td = $("<td>1</td>")
+            let td = $("<td></td>")
             tr.append(td)
             allTd.push(td)
         }
         tBody.append(tr)
     }
-
 }
