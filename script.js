@@ -16,16 +16,15 @@ showDate()
 function showDate() {
     let year = defaultDate.getFullYear()
     let month = defaultDate.getMonth() + 1
+    yearMonthDiv.text(year + '年' + month + '月')
     let week = new Date(year, month - 1, 1).getDay()
     let days = new Date(year, month, 0).getDate()
     let n = 1
     for (let i = 0; i < allTd.length; i++) {
-        if (i >= week) {
+        allTd[i].empty()
+        if (i >= week && n <= days) {
             allTd[i].text(n)
             n++
-            if (n > days) {
-                break;
-            }
         }
     }
 }
@@ -35,7 +34,7 @@ function create() {
         `
         <header>
             <span class='fl'>上个月</span>
-            <span class='fr'>上个月</span>
+            <span class='fr'>下个月</span>
             <div>2021年8月</div>
         </header>
         `);
@@ -74,3 +73,15 @@ function create() {
         tBody.append(tr)
     }
 }
+
+$('#box span').click(function() {
+    let year = defaultDate.getFullYear()
+    let month = defaultDate.getMonth()
+    if ($(this).index() == 0) {
+        month--
+    } else {
+        month++
+    }
+    defaultDate = new Date(year, month)
+    showDate()
+})
